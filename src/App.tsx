@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { RootState } from "./store";
 import { useAuth } from "./hooks/useAuth";
@@ -22,7 +22,7 @@ function App() {
     <Router>
       <nav>
         <div className="nav-left">
-          <Link to="/products" className="logo">🛍 MyShop</Link>
+          <Link to="/products" className="logo">🛍 Shop</Link>
         </div>
         <div className="nav-right">
           <Link to="/products">상품 목록</Link>
@@ -39,6 +39,7 @@ function App() {
       </nav>
 
       <Routes>
+        <Route path="/" element={<Navigate to="/products" replace />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/cart" element={<CartPage />} />

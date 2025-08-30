@@ -8,6 +8,6 @@ module.exports = {
   ],
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    'react/react-in-jsx-scope': 'off', // React 17 이상은 필요 없음
+    'react/react-in-jsx-scope': 'off',
   },
 };
